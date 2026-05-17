@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using System.Xml.Linq;
 
 namespace ClinicManagmentSystem
 {
@@ -104,14 +105,55 @@ namespace ClinicManagmentSystem
                         }
 
                         break;
-                   
+
+
+                    case 4: //Age Category
+
+
+                        Console.WriteLine("Enter Patient age");
+                        P1Age = Convert.ToInt32(Console.ReadLine());
+                        if (P1Age < 18)
+                        {
+                            Console.WriteLine("");
+                            break;
+                        }
+                        
+                     else if (P1Age > 1 || P1Age <= 60)
+                    {
+                        Console.WriteLine("");
+                        break;
+                    }
+                        else if (P1Age > 60 )
+                        {
+                            Console.WriteLine("");
+                        }
+                        break;
+
+                    case 0: // exit
+                        exit = true;
+                        break;
+
+                    default:// invalid option
+                        Console.WriteLine("invalid option please try again");
+                        break;
                 }
-            }
+
+                Console.WriteLine("press any key to continue...");
+                Console.ReadKey();
+                Console.Clear(); // clear the console for better user experience
+
+
+
+
 
 
             }
         }
-    }
+
+
+            }
+        }
+    
     
 
 
