@@ -33,6 +33,7 @@ namespace ClinicManagmentSystem
                 Console.WriteLine("2.View Patients Information");
                 Console.WriteLine("3.Edit Patient");
                 Console.WriteLine("4.Age Category");
+                Console.WriteLine("5. Delete Patient information:");
                 Console.WriteLine("0. Exit");
 
                 Console.WriteLine("Select your option: ");
@@ -114,18 +115,43 @@ namespace ClinicManagmentSystem
                         P1Age = Convert.ToInt32(Console.ReadLine());
                         if (P1Age < 18)
                         {
-                            Console.WriteLine("");
+                            Console.WriteLine("Children and teenagers");
                             break;
                         }
                         
                      else if (P1Age > 1 || P1Age <= 60)
                     {
-                        Console.WriteLine("");
+                        Console.WriteLine("Adults ");
                         break;
                     }
                         else if (P1Age > 60 )
                         {
-                            Console.WriteLine("");
+                            Console.WriteLine("Senior");
+                        }
+                        break;
+
+                    case 5: //Delete Patient information
+                        Console.Write("Enter Patient name to delete: ");
+                        string PatientName = Console.ReadLine();
+
+                        if (P1Active && P1Name == PatientName)
+                        {
+                           
+
+                            P1Active = false;
+                            P1Name = "";
+                            P1IdNumber = "";
+                            P1Age = 0;
+                            P1Phone = "";
+                            
+
+            
+
+                            Console.WriteLine("Patient removed.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Patient not found.");
                         }
                         break;
 
@@ -153,8 +179,7 @@ namespace ClinicManagmentSystem
 
             }
         }
-    
-    
+
 
 
 
