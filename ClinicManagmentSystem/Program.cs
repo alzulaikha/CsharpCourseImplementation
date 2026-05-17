@@ -10,11 +10,11 @@ namespace ClinicManagmentSystem
 
             //rejon 1 : system storage ( variables )
             // store banck account information
-            string P1Name = "";
-            string P1IdNumber = "";
-            int P1Age = 0;
-            string P1Phone = "";
-            bool P1Active = false;
+            string PatientNamee = "";
+            string PatientIdNumber = "";
+            int PatientAge = 0;
+            string PatientPhone = "";
+            bool PatientActive = false;
 
 
             //rejon 2 : system processing ( menu functions )
@@ -44,22 +44,22 @@ namespace ClinicManagmentSystem
 
                 {
                     case 1: //Registeration Patient
-                        if (P1Active==true) 
+                        if (PatientActive==true) 
                         { 
                        Console.WriteLine("account information already exists ");
                         }
                         else
                         {
                             Console.WriteLine("Enter Patient name:");
-                            P1Name = Console.ReadLine();
+                            PatientNamee = Console.ReadLine();
                             Console.WriteLine("Enter Patient number:");
-                            P1IdNumber = Console.ReadLine();
+                            PatientIdNumber = Console.ReadLine();
                             Console.WriteLine("Enter Patient age:");
-                            P1Age = int.Parse(Console.ReadLine());
+                            PatientAge = int.Parse(Console.ReadLine());
                             Console.WriteLine("Enter Patient Phone Number ");
-                            P1Phone = Console.ReadLine();
+                            PatientPhone = Console.ReadLine();
 
-                            P1Active = true;
+                            PatientActive = true;
                             Console.WriteLine("account information added successfully.");
 
                         }
@@ -68,16 +68,16 @@ namespace ClinicManagmentSystem
 
                         case 2: //.View Patients Information
                         
-                         if (P1Active == false)
+                         if (PatientActive == false)
                         {
                             Console.WriteLine("no account information found, please add account information ");
                         }
                         else
                         {
-                            Console.WriteLine("Patient Name " + P1Name);
-                            Console.WriteLine("Patient ID Number: " + P1IdNumber);
-                            Console.WriteLine("Patient Age : " + P1Age);
-                            Console.WriteLine("Patient Phone Number:" + P1Phone);
+                            Console.WriteLine("Patient Name " + PatientNamee);
+                            Console.WriteLine("Patient ID Number: " + PatientIdNumber);
+                            Console.WriteLine("Patient Age : " + PatientAge);
+                            Console.WriteLine("Patient Phone Number:" + PatientPhone);
                         }
                         break;
 
@@ -91,13 +91,13 @@ namespace ClinicManagmentSystem
                         if (Option == 1)
                         {
                             Console.WriteLine("Enter new patient name:");
-                            P1Name = Console.ReadLine();
+                            PatientNamee = Console.ReadLine();
                             Console.WriteLine("Patient name updated successfully.");
                         }
                         else if (Option == 2)
                         {
                             Console.WriteLine("Enter new patient phone:");
-                            P1Phone = Console.ReadLine();
+                            PatientPhone = Console.ReadLine();
                             Console.WriteLine("Patient patient updated successfully.");
                         }
                         else
@@ -112,19 +112,19 @@ namespace ClinicManagmentSystem
 
 
                         Console.WriteLine("Enter Patient age");
-                        P1Age = Convert.ToInt32(Console.ReadLine());
-                        if (P1Age < 18)
+                        PatientAge = Convert.ToInt32(Console.ReadLine());
+                        if (PatientAge < 18)
                         {
                             Console.WriteLine("Children and teenagers");
                             break;
                         }
                         
-                     else if (P1Age > 1 || P1Age <= 60)
+                     else if (PatientAge > 1 || PatientAge <= 60)
                     {
                         Console.WriteLine("Adults ");
                         break;
                     }
-                        else if (P1Age > 60 )
+                        else if (PatientAge > 60 )
                         {
                             Console.WriteLine("Senior");
                         }
@@ -134,15 +134,15 @@ namespace ClinicManagmentSystem
                         Console.Write("Enter Patient name to delete: ");
                         string PatientName = Console.ReadLine();
 
-                        if (P1Active && P1Name == PatientName)
+                        if (PatientActive && PatientNamee == PatientName)
                         {
                            
 
-                            P1Active = false;
-                            P1Name = "";
-                            P1IdNumber = "";
-                            P1Age = 0;
-                            P1Phone = "";
+                            PatientActive = false;
+                            PatientNamee = "";
+                            PatientIdNumber = "";
+                            PatientAge = 0;
+                            PatientPhone = "";
                             
 
             
