@@ -10,7 +10,7 @@ namespace ClinicManagmentSystem
             //rejon 1 : system storage ( variables )
             // store banck account information
             string P1Name = "";
-            string P1Number = "";
+            string P1IdNumber = "";
             int P1Age = 0;
             string P1Phone = "";
             bool P1Active = false;
@@ -29,7 +29,7 @@ namespace ClinicManagmentSystem
 
                 Console.WriteLine("CLINIC MANAGEMENT SYSTEM ");
                 Console.WriteLine("1.Registeration Patient ");
-                Console.WriteLine("2.View Patients");
+                Console.WriteLine("2.View Patients Information");
                 Console.WriteLine("3.Edit Patient");
                 Console.WriteLine("4.Age Category");
                 Console.WriteLine("0. Exit");
@@ -51,7 +51,7 @@ namespace ClinicManagmentSystem
                             Console.WriteLine("Enter Patient name:");
                             P1Name = Console.ReadLine();
                             Console.WriteLine("Enter Patient number:");
-                            P1Number = Console.ReadLine();
+                            P1IdNumber = Console.ReadLine();
                             Console.WriteLine("Enter Patient age:");
                             P1Age = int.Parse(Console.ReadLine());
                             Console.WriteLine("Enter Patient Phone Number ");
@@ -64,6 +64,20 @@ namespace ClinicManagmentSystem
 
                         break;
 
+                        case 2: //.View Patients Information
+                        
+                         if (P1Active == false)
+                        {
+                            Console.WriteLine("no account information found, please add account information ");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Patient Name " + P1Name);
+                            Console.WriteLine("Patient ID Number: " + P1IdNumber);
+                            Console.WriteLine("Patient Age : " + P1Age);
+                            Console.WriteLine("Patient Phone Number:" + P1Phone);
+                        }
+                        break;
 
                 }
             }
