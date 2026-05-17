@@ -79,6 +79,32 @@ namespace ClinicManagmentSystem
                         }
                         break;
 
+                    case 3: //Edit Patient
+
+                        Console.WriteLine("Select option number to edit");
+                        Console.WriteLine("1. Edit Patient Name");
+                        Console.WriteLine("2. Edit Patient phone");
+                        int Option = int.Parse(Console.ReadLine());
+
+                        if (Option == 1)
+                        {
+                            Console.WriteLine("Enter new patient name:");
+                            P1Name = Console.ReadLine();
+                            Console.WriteLine("Patient name updated successfully.");
+                        }
+                        else if (Option == 2)
+                        {
+                            Console.WriteLine("Enter new patient phone:");
+                            P1Phone = Console.ReadLine();
+                            Console.WriteLine("Patient patient updated successfully.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("invalid option please try again");
+                        }
+
+                        break;
+                   
                 }
             }
 
