@@ -31,11 +31,41 @@ namespace ClinicManagmentSystem
                 Console.WriteLine("1.Registeration Patient ");
                 Console.WriteLine("2.View Patients");
                 Console.WriteLine("3.Edit Patient");
-                Console.WriteLine("Age Category");
+                Console.WriteLine("4.Age Category");
                 Console.WriteLine("0. Exit");
 
                 Console.WriteLine("Select your option: ");
                 int option = int.Parse(Console.ReadLine());
+
+                switch(option)
+
+
+                {
+                    case 1: //Registeration Patient
+                        if (P1Active==true) 
+                        { 
+                       Console.WriteLine("account information already exists ");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Enter Patient name:");
+                            P1Name = Console.ReadLine();
+                            Console.WriteLine("Enter Patient number:");
+                            P1Number = Console.ReadLine();
+                            Console.WriteLine("Enter Patient age:");
+                            P1Age = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Enter Patient Phone Number ");
+                            P1Phone = Console.ReadLine();
+
+                            P1Active = true;
+                            Console.WriteLine("account information added successfully.");
+
+                        }
+
+                        break;
+
+
+                }
             }
 
 
