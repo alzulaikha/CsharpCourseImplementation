@@ -11,7 +11,7 @@ namespace HotelManagementSystem
 
             string guestName = "";
             string guestPhone = "";
-            string roomNumber = "";
+            int roomNumber = 0;
             string roomType = "";
             double nightlyRate = 0;
             string checkInDate = "";
@@ -23,7 +23,7 @@ namespace HotelManagementSystem
             bool registeredGuest = false;
             bool checkedinGuest = false;
 
-
+            
 
 
 
@@ -52,10 +52,43 @@ namespace HotelManagementSystem
                 Console.WriteLine("Select your option: ");
                 int option = int.Parse(Console.ReadLine());
 
-              
+                switch (option)
+                {
+
+                    case 0: //Register New Guest
+                       
+
+                        Console.WriteLine("Enter Guest Name :");
+                        guestName = Console.ReadLine().Trim();
+                        Console.WriteLine("Enter Guest Phone :");
+                        guestPhone = Console.ReadLine().Trim();
+                        Console.WriteLine("Enter Room Type :S/D/K");
+                        roomType = Console.ReadLine().Trim();
+                        Console.WriteLine("Enter Nightly Rate");
+                        nightlyRate = double.Parse (Console.ReadLine());
+
+                        roomNumber = new Random().Next(0, 100);
+                       
+
+                        registeredGuest = true;
+
+                        Console.WriteLine("Guest registered successfully");
+                        Console.WriteLine("Room Number: " + roomNumber);
 
 
+
+                        break;
+
+
+
+                }
+
+
+                Console.WriteLine("press any key to continue...");
+                Console.ReadKey();
+                Console.Clear(); // clear the console for better user experience
+
             }
-            }
+        }
     }
 }
