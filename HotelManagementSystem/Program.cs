@@ -27,6 +27,35 @@ namespace HotelManagementSystem
 
 
 
-        }
+            bool exit = false;
+            while (exit == false)
+
+            {
+
+                Console.Clear();
+
+                Console.WriteLine("=== Hotel MANAGEMENT SYSTEM === ");
+                Console.WriteLine("0 Register New Guest");
+                Console.WriteLine("1 View Guest Information");
+                Console.WriteLine("2 Check-In Guest ");
+                Console.WriteLine("3 Check-Out & Bill ");
+                Console.WriteLine("4 Apply Discount");
+                Console.WriteLine("5 Upgrade Room");
+                Console.WriteLine("6 Add Room Service Note");
+                Console.WriteLine("7 Search Guest by Name");
+                Console.WriteLine("8 Calculate Loyalty Points");
+                Console.WriteLine("9 Print Receipt ");
+                Console.WriteLine("10 Edit Guest Name");
+                Console.WriteLine("11 Exit");
+
+
+                Console.WriteLine("Select your option: ");
+                int option = int.Parse(Console.ReadLine());
+
+              
+
+
+            }
+            }
     }
 }
