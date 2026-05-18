@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="ClinicManagmentSystem/ClinicManagmentSystem.csproj" />
+  <Project Path="HotelManagementSystem/HotelManagementSystem.csproj" Id="a4da2208-a49b-4b67-84bc-f0e1f3b76fa6" />
 </Solution>
