@@ -20,8 +20,8 @@ namespace HotelManagementSystem
             string roomNotes = "";
             double discountPercentage= 0;
             double loyaltyPoints = 0;
-            bool registeredGuest = false;
-            bool checkedinGuest = false;
+            bool isRegisteredGuest = false;
+            bool isCheckedinGuest = false;
 
             
 
@@ -70,7 +70,7 @@ namespace HotelManagementSystem
                         roomNumber = new Random().Next(0, 100);
                        
 
-                        registeredGuest = true;
+                        isRegisteredGuest = true;
 
                         Console.WriteLine("Guest registered successfully");
                         Console.WriteLine("Room Number: " + roomNumber);
@@ -80,6 +80,39 @@ namespace HotelManagementSystem
                         break;
 
 
+                      
+                        break;
+
+
+
+                    case 1:
+
+                        if (isRegisteredGuest==false)
+                        {
+                            Console.WriteLine("No Guest Registered");
+                            break;
+                        }
+
+                        Console.WriteLine("Guest Name: " + guestName.ToUpper());
+
+                        Console.WriteLine("Phone: " + guestPhone);
+
+                        Console.WriteLine("Room Number: " + Convert.ToString(roomNumber));
+
+                        Console.WriteLine("Room Type: " + roomType);
+
+                        Console.WriteLine("Nightly Rate: "
+                            + Math.Round(nightlyRate, 0));//Math.Round
+
+                        break;
+
+                    
+
+
+
+
+
+                        break;
 
                 }
 
