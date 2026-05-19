@@ -1,5 +1,7 @@
 ﻿
 
+using System.Runtime.CompilerServices;
+
 namespace HotelManagementSystem
 {
     internal class Program
@@ -131,6 +133,50 @@ namespace HotelManagementSystem
                             Console.WriteLine("Customer checked out successfully");
                         }
                         break;
+                    case 4:
+                        if (isCheckedinGuest== false)
+                        {
+                            Console.WriteLine("Guest not checked");
+                        }
+                     
+                        Console.WriteLine("Enter discount percentage");
+                        
+                        discountPercentage= Convert.ToDouble(Console.ReadLine());
+                        discountPercentage= Math.Abs(discountPercentage);
+
+                        double totalBill;
+                        totalBill= numberOfNights * nightlyRate;
+
+                        double finalBill;
+
+                        finalBill = totalBill - (totalBill * discountPercentage / 100);
+
+                        Console.WriteLine("Original amount discount:" + Math.Round(totalBill, 1));
+                        Console.WriteLine("Discounted amount" +Math.Round(finalBill,1));
+             
+
+                        break;
+                    
+
+
+
+                        break;
+                    case 6:
+                        break;
+                    case 7:
+                        break;
+                    case 8:
+                        break;
+                    case 9:
+                        break;
+                    case 10:
+                        break;
+                    case 11:
+                        break;
+
+                    default:
+                        break;
+
                 }
 
 
@@ -155,13 +201,13 @@ namespace HotelManagementSystem
                     case 0: //Register New Guest
 
 
-                        
+
 
 
 
                     case 1:
 
-                        
+
 
                         break;
 
@@ -175,3 +221,9 @@ namespace HotelManagementSystem
         }
     }
 }
+
+
+
+
+
+    
