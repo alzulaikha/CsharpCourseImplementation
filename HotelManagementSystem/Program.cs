@@ -156,7 +156,24 @@ namespace HotelManagementSystem
              
 
                         break;
-                    
+                    case 5:
+                        if(isRegisteredGuest == false)
+                        {
+                            Console.WriteLine("No guest registered");
+                            
+                        }
+
+                        Console.WriteLine("Enter new room type:");
+                        roomType = Console.ReadLine();
+
+                        Console.WriteLine("Enter new nightly rate:");
+                        nightlyRate = Convert.ToDouble(Console.ReadLine());
+
+
+                        double newNightRate= Convert.ToDouble(Console.ReadLine());
+
+                        Console.WriteLine("Higher rate:" + Math.Max(newNightRate, nightlyRate));
+                        Console.WriteLine("Lower rate:" + Math.Min(newNightRate, nightlyRate));
 
 
 
