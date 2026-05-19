@@ -1,5 +1,4 @@
-﻿using System.Xml.Linq;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿
 
 namespace HotelManagementSystem
 {
@@ -14,16 +13,16 @@ namespace HotelManagementSystem
             int roomNumber = 0;
             string roomType = "";
             double nightlyRate = 0;
-            string checkInDate = "";
-            string checkOutDate = "";
+            DateTime checkInDate;
+            DateTime checkOutDate;
             int numberOfNights = 0;
             string roomNotes = "";
-            double discountPercentage= 0;
+            double discountPercentage = 0;
             double loyaltyPoints = 0;
             bool isRegisteredGuest = false;
             bool isCheckedinGuest = false;
 
-            
+
 
 
 
@@ -54,10 +53,7 @@ namespace HotelManagementSystem
 
                 switch (option)
                 {
-
-                    case 0: //Register New Guest
-                       
-
+                    case 0:
                         Console.WriteLine("Enter Guest Name :");
                         guestName = Console.ReadLine().Trim();
                         Console.WriteLine("Enter Guest Phone :");
@@ -65,57 +61,100 @@ namespace HotelManagementSystem
                         Console.WriteLine("Enter Room Type :S/D/K");
                         roomType = Console.ReadLine().Trim();
                         Console.WriteLine("Enter Nightly Rate");
-                        nightlyRate = double.Parse (Console.ReadLine());
+                        nightlyRate = double.Parse(Console.ReadLine());
 
                         roomNumber = new Random().Next(0, 100);
-                       
+
 
                         isRegisteredGuest = true;
 
                         Console.WriteLine("Guest registered successfully");
                         Console.WriteLine("Room Number: " + roomNumber);
 
-
-
                         break;
 
+                    case 1:
+                        if (isRegisteredGuest == false)
+                        {
+                            Console.WriteLine("No Guest Registered");
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Guest Name: " + guestName.ToUpper());
 
-                      
+                            Console.WriteLine("Phone: " + guestPhone);
+
+                            Console.WriteLine("Room Number: " + Convert.ToString(roomNumber));
+
+                            Console.WriteLine("Room Type: " + roomType);
+
+                            Console.WriteLine("Nightly Rate: " + Math.Round(nightlyRate, 0));//Math.Round
+
+                        }
                         break;
+
+                    case 2:
+                        if (isRegisteredGuest == false)
+                        {
+                            Console.WriteLine("No guest registered");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Enter number of night");
+                            numberOfNights = Convert.ToInt32(Console.ReadLine());
+                            checkInDate = DateTime.Now;
+
+                            DateTime dt = DateTime.Today;
+                            checkOutDate = checkInDate.AddDays(numberOfNights);
+
+                            isCheckedinGuest = true;
+                            Console.WriteLine("Checked guest is successfully");
+
+                            Console.WriteLine("Check-in date:" + checkInDate.ToString());
+
+                            Console.WriteLine("Check-out date:" + checkOutDate.ToString());
+
+                        }
+                        break;
+
+                  
+                        
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                switch (option)
+                {
+
+                    case 0: //Register New Guest
+
+
+                        
 
 
 
                     case 1:
 
-                        if (isRegisteredGuest==false)
-                        {
-                            Console.WriteLine("No Guest Registered");
-                            break;
-                        }
-
-                        Console.WriteLine("Guest Name: " + guestName.ToUpper());
-
-                        Console.WriteLine("Phone: " + guestPhone);
-
-                        Console.WriteLine("Room Number: " + Convert.ToString(roomNumber));
-
-                        Console.WriteLine("Room Type: " + roomType);
-
-                        Console.WriteLine("Nightly Rate: "
-                            + Math.Round(nightlyRate, 0));//Math.Round
-
-                        break;
-
-                    
-
-
-
-
+                        
 
                         break;
 
                 }
-
 
                 Console.WriteLine("press any key to continue...");
                 Console.ReadKey();
