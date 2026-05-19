@@ -118,8 +118,19 @@ namespace HotelManagementSystem
                         }
                         break;
 
-                  
-                        
+                    case 3:
+                        if(isCheckedinGuest==false)
+                        {
+                            Console.WriteLine("Guest not checked in");
+                        }
+                        else
+                        {
+                            double totalbill;
+                            totalbill = numberOfNights * nightlyRate;
+                            Console.WriteLine("Total bill:" + Math.Round(totalbill, 0));
+                            Console.WriteLine("Customer checked out successfully");
+                        }
+                        break;
                 }
 
 
