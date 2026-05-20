@@ -85,7 +85,14 @@ namespace LibraryManagementSystem
                 switch(option)
                 {
                     case 0: ////Registeration Member
-                    
+
+                        bool checkResult = checkisactive();
+
+                        if (checkResult == false) //there is no account stored
+                        {
+                            AddMemberInformation();
+                        }
+
 
                         break;
                     case 1:
