@@ -103,7 +103,11 @@ namespace LibraryManagementSystem
                         break;
 
                     case 1:
-
+                        bool check = checkisactive();
+                        if (check == false)
+                        {
+                            displayinformation();
+                        }
                         break;
                     case 2:
                         break;
