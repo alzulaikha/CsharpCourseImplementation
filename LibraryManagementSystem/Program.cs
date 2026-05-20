@@ -42,10 +42,10 @@ namespace LibraryManagementSystem
 
            
         }
-      
+
         public static bool checkisactive()
-            {
-            if(isMemberRegistered== true)
+        {
+            if (isMemberRegistered == true)
             {
                 Console.WriteLine("No member information found, please add member information ");
                 return true;
@@ -55,6 +55,7 @@ namespace LibraryManagementSystem
                 return false;
             }
         }
+        
 
         public static void AddMemberInformation()
         {
@@ -70,6 +71,12 @@ namespace LibraryManagementSystem
 
             isMemberRegistered = true;
             Console.WriteLine("Member information added successfully.");
+        }
+        public static void displayinformation()
+        {
+            Console.WriteLine("Account Member Name: " + memberName);
+            Console.WriteLine("Account Member ID: " + memberID);
+            Console.WriteLine("Account Member Email: " + memberEmail);
         }
         static void Main(string[] args)
         {
@@ -93,9 +100,10 @@ namespace LibraryManagementSystem
                             AddMemberInformation();
                         }
 
-
                         break;
+
                     case 1:
+
                         break;
                     case 2:
                         break;
