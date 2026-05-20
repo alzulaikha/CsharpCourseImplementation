@@ -1,4 +1,5 @@
-﻿using System.Collections.Specialized;
+﻿using Microsoft.VisualBasic.FileIO;
+using System.Collections.Specialized;
 
 namespace LibraryManagementSystem
 {
@@ -17,7 +18,7 @@ namespace LibraryManagementSystem
         double totalFinesPaid= 0;
         bool isMemberRegistered = false;
         bool isBookRegistered = false;
-
+       
 
         public static void PrintMainMenu()
         {
@@ -38,8 +39,7 @@ namespace LibraryManagementSystem
             Console.WriteLine("13 Session Summary");
             Console.WriteLine("14. Exit");
 
-            Console.WriteLine("Select your option: ");
-            int option = int.Parse(Console.ReadLine());
+           
         }
 
 
@@ -53,9 +53,11 @@ namespace LibraryManagementSystem
             
             
             PrintMainMenu();
+                Console.WriteLine("Select your option: ");
+               int option = int.Parse(Console.ReadLine());
 
-            
-            
+
+
             }
 
 
