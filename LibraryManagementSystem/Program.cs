@@ -1,24 +1,27 @@
 ﻿using Microsoft.VisualBasic.FileIO;
 using System.Collections.Specialized;
+using System.Globalization;
+using System.Reflection.Metadata.Ecma335;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LibraryManagementSystem
 {
     internal class Program
     {
-       static string memberName = "";
-       static int memberID = 0;
-       static string memberEmail = "";
-       static DateTime memShipExpiryDate;
-       static String memberTire = "";
-       static string bookTitle = "";
-       static string boohAuthor = "";
-       static string bookGenre = "";
-       static int bookcopiesNum = 0;
-       static int totalBooks = 0;
-       static double totalFinesPaid= 0;
-       static bool isMemberRegistered = false;
-       static bool isBookRegistered = false;
-       
+        static string memberName = "";
+        static int memberID = 0;
+        static string memberEmail = "";
+        static string memShipExpiryDate;
+        static string memberTire = "";
+        static string bookTitle = "";
+        static string bookAuthor = "";
+        static string bookGenre = "";
+        static int bookcopiesNum = 0;
+        static int totalBooks = 0;
+        static double totalFinesPaid = 0;
+        static bool isMemberRegistered = false;
+        static bool isBookRegistered = false;
+
 
         public static void PrintMainMenu()
         {
@@ -40,14 +43,17 @@ namespace LibraryManagementSystem
             Console.WriteLine("13 Session Summary");
             Console.WriteLine("14. Exit");
 
-           
+
         }
 
-        public static bool checkisactive()
+        
+
+
+        public static bool checkregister()
         {
             if (isMemberRegistered == true)
             {
-                Console.WriteLine("No member information found, please add member information ");
+                Console.WriteLine("Member information already exists ");
                 return true;
             }
             else
@@ -55,99 +61,184 @@ namespace LibraryManagementSystem
                 return false;
             }
         }
-        
+
 
         public static void AddMemberInformation()
         {
+
             Console.WriteLine("Enter member name:");
             memberName = Console.ReadLine();
-            string Name  = memberName.Substring(1,4);
+          
             Console.WriteLine("Enter member Id:");
             memberID = int.Parse(Console.ReadLine());
             Console.WriteLine("Enter member email:");
             memberEmail = Console.ReadLine();
-           
-            
+            Console.WriteLine("Enter member's membership expiry date");
+            memShipExpiryDate = Console.ReadLine();
+            string dateToday = DateTime.Now.ToString();
+            Console.WriteLine("member's membership expiry date:" + dateToday);
+
 
             isMemberRegistered = true;
             Console.WriteLine("Member information added successfully.");
+
+
+
+
         }
+        
         public static void displayinformation()
         {
             Console.WriteLine("Account Member Name: " + memberName);
             Console.WriteLine("Account Member ID: " + memberID);
             Console.WriteLine("Account Member Email: " + memberEmail);
         }
-        static void Main(string[] args)
+
+        static void BorrowBook(ref int copies)
         {
-            
-        bool exit = false;
-            while (exit) { 
-            
-            
-            PrintMainMenu();
-                Console.WriteLine("Select your option: ");
-               int option = int.Parse(Console.ReadLine());
+            Console.WriteLine("enter available copy"+copies);
+            copies=int.Parse(Console.ReadLine());
 
-                switch(option)
-                {
-                    case 0: ////Registeration Member
+            if (copies > 0)
+            {
+                copies--;
+                Console.WriteLine("Book is borrow");
 
-                        bool checkResult = checkisactive();
-
-                        if (checkResult == false) //there is no account stored
-                        {
-                            AddMemberInformation();
-                        }
-
-                        break;
-
-                    case 1:
-                        bool check = checkisactive();
-                        if (check == false)
-                        {
-                            displayinformation();
-                        }
-                        break;
-                    case 2:
-                        break;
-                    case 3:
-                        break;
-                    case 4:
-                        break;
-                    case 5:
-                        break;
-                    case 6:
-                        break;
-                    case 7:
-                        break;
-                    case 8:
-                        break;
-                    case 9:
-                        break;
-                    case 10:
-                        break;
-                    case 11:
-                        break;
-                    case 12:
-                        break;
-                    case 13:
-                        break;
-                    case 14:
-                        break;
-                    default:// invalid option
-                        Console.WriteLine("invalid option please try again");
-                        break;
-
-
-
-                }//closed switch
-                Console.WriteLine("press any key to continue...");
-                Console.ReadKey();
-                Console.Clear(); // clear the console for better user experience
-            }//closed while
-
-
+            }
+            else { Console.WriteLine("No book availbe");
+            }
         }
+
+
+        public static  int ReturnBook(ref int copy)
+            {
+
+
+                copy = copy + 1;
+                Console.WriteLine("Book return ");
+                return copy;
+            }
+
+        public static void AddBook(string title, string author, int numcopy,string genre="")
+        {
+            if (isBookRegistered == false)
+            {
+                Console.WriteLine("No Book Registered");
+
+            }
+            else
+                Console.WriteLine("Enter book title:");
+            bookTitle = Console.ReadLine().Trim();
+            Console.WriteLine("Enter author name:");
+            bookAuthor= Console.ReadLine().Trim();
+            Console.WriteLine("Enter number of book copies:");
+            bookcopiesNum=int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter book genre");
+            bookGenre = Console.ReadLine().Trim();
+
+            isBookRegistered = true;
+            Console.WriteLine("Book information added successfully.");
+                
+                }
+
+        static void Main(string[] args)
+            {
+
+                bool exit = false;
+                while (exit == false)
+                {
+
+
+                    PrintMainMenu();
+                    Console.WriteLine("Select your option: ");
+                    int option = int.Parse(Console.ReadLine());
+
+                    switch (option)
+                    {
+                        case 0: ////Registeration Member
+
+                            bool checkResult = checkregister();
+
+                            if (checkResult == false)
+                            {
+                                AddMemberInformation();
+                            }
+
+                            break;
+
+                        case 1://Display Member Profile
+                            bool check = checkregister();
+                            if (check == true)
+                            {
+                                displayinformation();
+                            }
+                            break;
+                        case 2:
+
+                            break;
+                        case 3:
+
+                        if (isBookRegistered == false)
+                        {
+                            Console.WriteLine("No Book Registered");
+                            break;
+                        }
+                        else
+                        {
+
+
+                            BorrowBook(ref bookcopiesNum);
+
+                            Console.WriteLine("Available Copies: " + bookcopiesNum);
+                        }
+                        break;
+                        case 4:
+                           if(isBookRegistered == false)
+                            
+                            {
+                                Console.WriteLine("No book register");
+                            }
+
+                            ReturnBook(ref bookcopiesNum);
+                            break;
+                        case 5:
+                            break;
+                        case 6:
+                            break;
+                        case 7:
+                            break;
+                        case 8:
+                        
+                        
+                            AddBook(bookTitle, bookAuthor, bookcopiesNum,bookGenre);
+                        
+                            break;
+                        case 9:
+                            break;
+                        case 10:
+                            break;
+                        case 11:
+                            break;
+                        case 12:
+                            break;
+                        case 13:
+                            break;
+                        case 14:
+                            break;
+                        default:// invalid option
+                            Console.WriteLine("invalid option please try again");
+                            break;
+
+
+
+                    }//closed switch
+                    Console.WriteLine("press any key to continue...");
+                    Console.ReadKey();
+                    Console.Clear(); // clear the console for better user experience
+                }//closed while
+
+
+            }
+        
     }
 }
