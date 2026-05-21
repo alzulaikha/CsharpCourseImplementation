@@ -23,7 +23,7 @@ namespace LibraryManagementSystem
         static bool isBookRegistered = false;
 
 
-        public static void PrintMainMenu()
+        public static void PrintMainMenu()//main menu function
         {
             Console.Clear();
             Console.WriteLine("Main Menu:");
@@ -49,7 +49,7 @@ namespace LibraryManagementSystem
         
 
 
-        public static bool checkregister()
+        public static bool checkregister()//check register function
         {
             if (isMemberRegistered == true)
             {
@@ -63,7 +63,7 @@ namespace LibraryManagementSystem
         }
 
 
-        public static void AddMemberInformation()
+        public static void AddMemberInformation()//add member function
         {
 
             Console.WriteLine("Enter member name:");
@@ -87,14 +87,14 @@ namespace LibraryManagementSystem
 
         }
         
-        public static void displayinformation()
+        public static void displayinformation()//display member information function
         {
             Console.WriteLine("Account Member Name: " + memberName);
             Console.WriteLine("Account Member ID: " + memberID);
             Console.WriteLine("Account Member Email: " + memberEmail);
         }
 
-        static void BorrowBook(ref int copies)
+        static void BorrowBook(ref int copies)//Borrow a Book function
         {
             Console.WriteLine("enter available copy"+copies);
             copies=int.Parse(Console.ReadLine());
@@ -110,16 +110,16 @@ namespace LibraryManagementSystem
         }
 
 
-        public static  int ReturnBook(ref int copy)
-            {
+        public static  int ReturnBook(ref int copies)//Return a Book  function
+        {
 
 
-                copy = copy + 1;
+                copies = copies + 1;
                 Console.WriteLine("Book return ");
-                return copy;
+                return copies;
             }
 
-        public static void AddBook(string title, string author, int numcopy,string genre="")
+        public static void AddBook(string title, string author, int numcopy,string genre="")//add book function
         {
             if (isBookRegistered == false)
             {
@@ -140,6 +140,13 @@ namespace LibraryManagementSystem
             Console.WriteLine("Book information added successfully.");
                 
                 }
+        public static int CalculateLateFine(ref int days)
+        {
+            
+            double Fine = Math.Sqrt(days)*3;
+           
+            return days;
+        }
 
         static void Main(string[] args)
             {
@@ -176,7 +183,7 @@ namespace LibraryManagementSystem
                         case 2:
 
                             break;
-                        case 3:
+                        case 3://Borrow a Book
 
                         if (isBookRegistered == false)
                         {
@@ -192,8 +199,8 @@ namespace LibraryManagementSystem
                             Console.WriteLine("Available Copies: " + bookcopiesNum);
                         }
                         break;
-                        case 4:
-                           if(isBookRegistered == false)
+                        case 4://Return a Book
+                        if (isBookRegistered == false)
                             
                             {
                                 Console.WriteLine("No book register");
@@ -202,7 +209,18 @@ namespace LibraryManagementSystem
                             ReturnBook(ref bookcopiesNum);
                             break;
                         case 5:
-                            break;
+
+                        Console.WriteLine("Enter number of overdue days");
+                        int days= int.Parse(Console.ReadLine());
+
+                        double Fine= CalculateLateFine(ref days);
+                        totalFinesPaid = totalFinesPaid + Fine;
+
+                        Console.WriteLine("Late Fine:" + Fine);
+                        Console.WriteLine("Total of fine:" + totalFinesPaid);
+
+
+                        break;
                         case 6:
                             break;
                         case 7:

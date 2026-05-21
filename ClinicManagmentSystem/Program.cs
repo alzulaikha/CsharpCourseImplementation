@@ -43,6 +43,7 @@ namespace ClinicManagmentSystem
 
                 {
                     case 1: //Registeration Patient
+
                         if (PatientActive==true) 
                         { 
                        Console.WriteLine("account information already exists ");
