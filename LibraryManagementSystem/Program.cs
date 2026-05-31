@@ -178,6 +178,13 @@ namespace LibraryManagementSystem
                 return amount * 0.25;
             return amount * 0.20;
         }
+        //Display book details
+        public static void DisplayBookDetails(string title, string author,int copies)
+        {
+            Console.WriteLine("Title:".PadRight(15) + title);
+            Console.WriteLine("Author:".PadRight(15) + author);
+            Console.WriteLine("Copies:".PadRight(15) + Convert.ToString(copies));
+        }
         static void Main(string[] args)
             {
 
@@ -249,9 +256,9 @@ namespace LibraryManagementSystem
                         Console.WriteLine("Enter number of overdue days");
                         int days= int.Parse(Console.ReadLine());
 
-                        double result= CalculateLateFine(days);
+                        double result1= CalculateLateFine(days);
                     
-                        Console.WriteLine(result);
+                        Console.WriteLine(result1);
                        
 
 
@@ -278,6 +285,7 @@ namespace LibraryManagementSystem
                         case 9:
                             break;
                         case 10:
+                        DisplayBookDetails(bookTitle, bookAuthor, bookcopiesNum);
                             break;
                         case 11:
                             break;
