@@ -185,6 +185,25 @@ namespace LibraryManagementSystem
             Console.WriteLine("Author:".PadRight(15) + author);
             Console.WriteLine("Copies:".PadRight(15) + Convert.ToString(copies));
         }
+       //Calculate renewal fee
+
+        public static double CalculateRenewalFee(int renewalDays)
+        {
+            double fee = renewalDays * 0.5;
+            return Math.Round(fee, 2);
+
+        }
+        public static double CalculateRenewalFee(int renewalDays,bool flag)
+        {
+            double fee = renewalDays * 0.5;
+
+            if (flag)
+            {
+                fee = fee / 2;
+            }
+            return fee;
+        }
+
         static void Main(string[] args)
             {
 
@@ -288,12 +307,21 @@ namespace LibraryManagementSystem
                         DisplayBookDetails(bookTitle, bookAuthor, bookcopiesNum);
                             break;
                         case 11:
+                        Console.WriteLine("Enter renewal days:");
+                        int renewaldays = int.Parse(Console.ReadLine());
+
+                        double standardFee = CalculateRenewalFee(renewaldays);
+                        double permiumFee = CalculateRenewalFee(renewaldays, true);
+
+                        Console.WriteLine("StandardFee:" + standardFee);
+                        Console.WriteLine("Premium Fee:" + permiumFee);
                             break;
                         case 12:
                             break;
                         case 13:
                             break;
                         case 14:
+                        exit = true;
                             break;
                         default:// invalid option
                             Console.WriteLine("invalid option please try again");
