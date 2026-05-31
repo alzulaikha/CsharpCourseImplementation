@@ -118,8 +118,8 @@ namespace LibraryManagementSystem
                 Console.WriteLine("Book return ");
                 return copies;
             }
-
-        public static void AddBook(string title, string author, int numcopy,string genre="")//add book function
+        ///add book function
+        public static void AddBook(string title, string author, int numcopy,string genre="")
         {
             if (isBookRegistered == false)
             {
@@ -140,6 +140,8 @@ namespace LibraryManagementSystem
             Console.WriteLine("Book information added successfully.");
                 
                 }
+        
+        //Calculate late fine function
         public static double CalculateLateFine( int days)
         {
             
@@ -148,7 +150,19 @@ namespace LibraryManagementSystem
             return Math.Round(Fine,2);
         }
 
-
+        //apply member discount function
+        public static double ApplyDiscount(double amount)
+        {
+            return amount* 0.15;
+             }
+        public static double ApplyDiscount(double amount,string tire)
+        {
+            if(tire=="Gold")
+                return amount *0.30;
+            if (tire == "Silver")
+                return amount * 0.25;
+            return amount * 0.20;
+        }
         static void Main(string[] args)
             {
 
@@ -209,7 +223,7 @@ namespace LibraryManagementSystem
 
                             ReturnBook(ref bookcopiesNum);
                             break;
-                        case 5:
+                        case 5://Calculate late Fine
 
                         Console.WriteLine("Enter number of overdue days");
                         int days= int.Parse(Console.ReadLine());
@@ -222,6 +236,15 @@ namespace LibraryManagementSystem
 
                         break;
                         case 6:
+                        Console.WriteLine("Enter amount:");
+                        double amount = double.Parse(Console.ReadLine());
+
+                        Console.WriteLine("Enter tire:");
+                        string tire = Console.ReadLine();
+
+                        double Result=ApplyDiscount(amount, tire);
+                        Console.WriteLine(Result);
+                           
                             break;
                         case 7:
                             break;
