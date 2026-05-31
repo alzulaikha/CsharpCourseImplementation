@@ -62,8 +62,8 @@ namespace LibraryManagementSystem
             }
         }
 
-
-        public static void AddMemberInformation()//add member function
+        //Add member information function
+        public static void AddMemberInformation()
         {
 
             Console.WriteLine("Enter member name:");
@@ -140,13 +140,14 @@ namespace LibraryManagementSystem
             Console.WriteLine("Book information added successfully.");
                 
                 }
-        public static int CalculateLateFine(ref int days)
+        public static double CalculateLateFine( int days)
         {
             
-            double Fine = Math.Sqrt(days)*3;
+            double Fine = Math.Sqrt(days)*2;
            
-            return days;
+            return Math.Round(Fine,2);
         }
+
 
         static void Main(string[] args)
             {
@@ -213,11 +214,10 @@ namespace LibraryManagementSystem
                         Console.WriteLine("Enter number of overdue days");
                         int days= int.Parse(Console.ReadLine());
 
-                        double Fine= CalculateLateFine(ref days);
-                        totalFinesPaid = totalFinesPaid + Fine;
-
-                        Console.WriteLine("Late Fine:" + Fine);
-                        Console.WriteLine("Total of fine:" + totalFinesPaid);
+                        double result= CalculateLateFine(days);
+                    
+                        Console.WriteLine(result);
+                       
 
 
                         break;
