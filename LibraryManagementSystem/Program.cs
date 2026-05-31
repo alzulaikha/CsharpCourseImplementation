@@ -94,6 +94,21 @@ namespace LibraryManagementSystem
             Console.WriteLine("Account Member Email: " + memberEmail);
         }
 
+        // Search book by title function
+        public static bool searchBookByTitle(string title, string keyword)
+        {
+            title = title.ToLower();
+            keyword = keyword.ToLower();
+            if (title.Contains(keyword))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         static void BorrowBook(ref int copies)//Borrow a Book function
         {
             Console.WriteLine("enter available copy"+copies);
@@ -196,6 +211,12 @@ namespace LibraryManagementSystem
                             }
                             break;
                         case 2:
+                        Console.WriteLine("Enter keyword:");
+                        string keyword = Console.ReadLine();
+
+                        bool result = searchBookByTitle(bookTitle, keyword);
+                        Console.WriteLine(result);
+
 
                             break;
                         case 3://Borrow a Book
