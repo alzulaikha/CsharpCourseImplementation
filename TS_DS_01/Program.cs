@@ -129,6 +129,25 @@ namespace TS_DS_01
             }
 
         }
+        // Library Book Shelf Scanner function
+        public static void libraryBookShelfScanner()
+        {
+            int[] copies = { 7, 9, 11, 4, 0, 6, 8, 2, 5 };
+            Console.WriteLine("original order: ");
+            foreach (int copy in copies)
+            {
+                Console.WriteLine(copy);
+            }
+            
+            Array.Sort(copies);
+            Console.WriteLine("sorted order list: ");
+            foreach (int copy in copies)
+            {
+                Console.WriteLine(copy);
+            }
+          
+            Console.WriteLine("Most copies: "+ copies[8]);//accessing most copies after sort
+        }
         static void Main(string[] args)
             {
 
@@ -157,10 +176,11 @@ namespace TS_DS_01
                         case 5://Problem 5: Classroom Grade Report
                         classroomGradeReport();
                             break;
-                        case 6:
+                        case 6://Problem 6: Warehouse Inventory Check 
                         warehouseInventoryCheck();
                         break;
                         case 7:
+                            libraryBookShelfScanner();
                             break;
                         case 8:
                             break;

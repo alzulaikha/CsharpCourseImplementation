@@ -2,5 +2,6 @@
   <Project Path="ClinicManagmentSystem/ClinicManagmentSystem.csproj" />
   <Project Path="HotelManagementSystem/HotelManagementSystem.csproj" Id="a4da2208-a49b-4b67-84bc-f0e1f3b76fa6" />
   <Project Path="LibraryManagementSystem/LibraryManagementSystem.csproj" Id="e67c63d0-3707-4057-b7ff-629f0d91326c" />
+  <Project Path="Lists_Practice/Lists_Practice.csproj" Id="891ab7b7-a672-41bc-a273-59fbb042b7eb" />
   <Project Path="TS_DS_01/TS_DS_01.csproj" Id="f44e69fb-d6c6-48b4-9038-e711047fe5db" />
 </Solution>

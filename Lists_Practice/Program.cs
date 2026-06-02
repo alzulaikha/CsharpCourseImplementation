@@ -22,8 +22,9 @@
         // temperaturees Log function
         public static void temperatureesLog()
         {
-            List<double> temperatures = new List<double>(); // Creating a list of integers 
-            temperatures.AddRange(new double[] { 34.2, 35.9, 35.5, 36.1, 36.8, 36.0, 36.2 });
+            List<double> temperatures = new List<double>()
+                { 34.2, 35.9, 35.5, 36.1, 36.8, 36.0, 36.2 }; // Creating a list of integers 
+         
             for (int i = 0; i < temperatures.Count; i++)
             {
                 Console.WriteLine("Day" + (i + 1) + ":" + temperatures[i] + "C");
@@ -51,6 +52,28 @@
                 Console.WriteLine(scores[i]);
             }
         }
+        public static void productPriceFinder()
+        {
+            List<double> prices = new List <double>()
+                { 2.99, 1.30, 5.32, 1.20, 4.88 } ;
+         
+  
+            Console.WriteLine("Product Prices: ");
+            for (int i = 0; i < prices.Count; i++)
+            {
+                Console.WriteLine("Product" + (i + 1) + ":" + prices[i]);
+            }
+            double targetPrice = 1.20;
+            int index = prices.IndexOf(targetPrice);
+            if (index == -1)
+            {
+                Console.WriteLine("Price not found");
+            }
+            else
+            {
+                Console.WriteLine("Price found:" + index);
+            }
+        }
         static void Main(string[] args)
         {
 
@@ -72,6 +95,7 @@
                         studentScoreBoard();
                         break;
                     case 3:
+                        productPriceFinder();
                         break;
                     case 4:
                         break;
