@@ -31,6 +31,26 @@
             }
             Console.WriteLine("Total number of reading:" + temperatures.Count);
         }
+        // Student Score Board function
+        public static void studentScoreBoard()
+        {
+            List<int> scores = new List<int>();
+            scores.AddRange(new int[] { 80, 87, 93, 76, 83, 97 });
+           
+            Console.WriteLine("Original Scores:");
+            foreach (int s in scores) //Print all scores in their original order
+            {
+                Console.WriteLine(s);
+            }
+            scores.Reverse();
+            
+
+            Console.WriteLine("Reversed Scores:"); //Reverse the array 
+            for (int i = 0; i < scores.Count; i++)
+            {
+                Console.WriteLine(scores[i]);
+            }
+        }
         static void Main(string[] args)
         {
 
@@ -49,7 +69,7 @@
                         temperatureesLog();
                         break;
                     case 2:
-                        
+                        studentScoreBoard();
                         break;
                     case 3:
                         break;
