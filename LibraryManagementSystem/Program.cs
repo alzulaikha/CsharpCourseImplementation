@@ -62,8 +62,8 @@ namespace LibraryManagementSystem
             }
         }
 
-
-        public static void AddMemberInformation()//add member function
+        //Add member information function
+        public static void AddMemberInformation()
         {
 
             Console.WriteLine("Enter member name:");
@@ -94,6 +94,21 @@ namespace LibraryManagementSystem
             Console.WriteLine("Account Member Email: " + memberEmail);
         }
 
+        // Search book by title function
+        public static bool searchBookByTitle(string title, string keyword)
+        {
+            title = title.ToLower();
+            keyword = keyword.ToLower();
+            if (title.Contains(keyword))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         static void BorrowBook(ref int copies)//Borrow a Book function
         {
             Console.WriteLine("enter available copy"+copies);
@@ -118,8 +133,8 @@ namespace LibraryManagementSystem
                 Console.WriteLine("Book return ");
                 return copies;
             }
-
-        public static void AddBook(string title, string author, int numcopy,string genre="")//add book function
+        ///add book function
+        public static void AddBook(string title, string author, int numcopy,string genre="")
         {
             if (isBookRegistered == false)
             {
@@ -140,12 +155,53 @@ namespace LibraryManagementSystem
             Console.WriteLine("Book information added successfully.");
                 
                 }
-        public static int CalculateLateFine(ref int days)
+        
+        //Calculate late fine function
+        public static double CalculateLateFine( int days)
         {
             
-            double Fine = Math.Sqrt(days)*3;
+            double Fine = Math.Sqrt(days)*2;
            
-            return days;
+            return Math.Round(Fine,2);
+        }
+
+        //apply member discount function
+        public static double ApplyDiscount(double amount)
+        {
+            return amount* 0.15;
+             }
+        public static double ApplyDiscount(double amount,string tire)
+        {
+            if(tire=="Gold")
+                return amount *0.30;
+            if (tire == "Silver")
+                return amount * 0.25;
+            return amount * 0.20;
+        }
+        //Display book details
+        public static void DisplayBookDetails(string title, string author,int copies)
+        {
+            Console.WriteLine("Title:".PadRight(15) + title);
+            Console.WriteLine("Author:".PadRight(15) + author);
+            Console.WriteLine("Copies:".PadRight(15) + Convert.ToString(copies));
+        }
+       //Calculate renewal fee
+
+        public static double CalculateRenewalFee(int renewalDays)
+        {
+            double fee = renewalDays * 0.5;
+            return Math.Round(fee, 2);
+
+        }
+        public static double CalculateRenewalFee(int renewalDays,bool flag)
+        {
+            double fee = renewalDays * 0.5;
+
+            if (flag)
+            {
+                fee = fee / 2;
+            }
+            return fee;
         }
 
         static void Main(string[] args)
@@ -181,6 +237,12 @@ namespace LibraryManagementSystem
                             }
                             break;
                         case 2:
+                        Console.WriteLine("Enter keyword:");
+                        string keyword = Console.ReadLine();
+
+                        bool result = searchBookByTitle(bookTitle, keyword);
+                        Console.WriteLine(result);
+
 
                             break;
                         case 3://Borrow a Book
@@ -208,20 +270,28 @@ namespace LibraryManagementSystem
 
                             ReturnBook(ref bookcopiesNum);
                             break;
-                        case 5:
+                        case 5://Calculate late Fine
 
                         Console.WriteLine("Enter number of overdue days");
                         int days= int.Parse(Console.ReadLine());
 
-                        double Fine= CalculateLateFine(ref days);
-                        totalFinesPaid = totalFinesPaid + Fine;
-
-                        Console.WriteLine("Late Fine:" + Fine);
-                        Console.WriteLine("Total of fine:" + totalFinesPaid);
+                        double result1= CalculateLateFine(days);
+                    
+                        Console.WriteLine(result1);
+                       
 
 
                         break;
                         case 6:
+                        Console.WriteLine("Enter amount:");
+                        double amount = double.Parse(Console.ReadLine());
+
+                        Console.WriteLine("Enter tire:");
+                        string tire = Console.ReadLine();
+
+                        double Result=ApplyDiscount(amount, tire);
+                        Console.WriteLine(Result);
+                           
                             break;
                         case 7:
                             break;
@@ -234,14 +304,24 @@ namespace LibraryManagementSystem
                         case 9:
                             break;
                         case 10:
+                        DisplayBookDetails(bookTitle, bookAuthor, bookcopiesNum);
                             break;
                         case 11:
+                        Console.WriteLine("Enter renewal days:");
+                        int renewaldays = int.Parse(Console.ReadLine());
+
+                        double standardFee = CalculateRenewalFee(renewaldays);
+                        double permiumFee = CalculateRenewalFee(renewaldays, true);
+
+                        Console.WriteLine("StandardFee:" + standardFee);
+                        Console.WriteLine("Premium Fee:" + permiumFee);
                             break;
                         case 12:
                             break;
                         case 13:
                             break;
                         case 14:
+                        exit = true;
                             break;
                         default:// invalid option
                             Console.WriteLine("invalid option please try again");
