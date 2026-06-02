@@ -20,6 +20,17 @@ namespace TS_DS_01
             Console.WriteLine("10. Hospital Patient Priority Queue");
             Console.WriteLine("0. Exit");
         }
+        // temperaturees Log function
+        public static void temperatureesLog()
+        {
+            double[] temperatures = { 34.2, 35.9, 35.5, 36.1, 36.8, 36.0, 36.2 };
+            for (int i = 0; i < temperatures.Length; i++)
+            {
+                Console.WriteLine("Day" + (i + 1) + ":" + temperatures[i] + "C");
+
+            }
+            Console.WriteLine("Total number of reading:" + temperatures.Length);
+        }
         static void Main(string[] args)
         {
 
@@ -34,6 +45,7 @@ namespace TS_DS_01
                 switch (option)
                 {
                     case 1:
+                        temperatureesLog();
                         break;
                     case 2:
                         break;
@@ -73,6 +85,10 @@ namespace TS_DS_01
     }
 
 }
+
+
+
+
 
 
 
