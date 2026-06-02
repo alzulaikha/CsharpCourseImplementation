@@ -2,6 +2,7 @@
 {
     internal class Program
     {
+        //main menu function
         public static void mainMenu()
         {
             Console.WriteLine("== Arrays Practice ==");
@@ -16,6 +17,19 @@
             Console.WriteLine("9. Flight Seat Allocation Display");
             Console.WriteLine("10. Hospital Patient Priority Queue");
             Console.WriteLine("0. Exit");
+        }
+
+        // temperaturees Log function
+        public static void temperatureesLog()
+        {
+            List<double> temperatures = new List<double>(); // Creating a list of integers 
+            temperatures.AddRange(new double[] { 34.2, 35.9, 35.5, 36.1, 36.8, 36.0, 36.2 });
+            for (int i = 0; i < temperatures.Count; i++)
+            {
+                Console.WriteLine("Day" + (i + 1) + ":" + temperatures[i] + "C");
+
+            }
+            Console.WriteLine("Total number of reading:" + temperatures.Count);
         }
         static void Main(string[] args)
         {
@@ -32,9 +46,10 @@
                 {
                     
                     case 1:
-                        mainMenu();
+                        temperatureesLog();
                         break;
                     case 2:
+                        
                         break;
                     case 3:
                         break;
