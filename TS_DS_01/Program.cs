@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic.FileIO;
+using System.Diagnostics;
 using System.Timers;
 
 namespace TS_DS_01
@@ -88,7 +89,19 @@ namespace TS_DS_01
             }
             Console.WriteLine("Number of participants: " + finishTimes.Length);
         }
+        // Classroom Grade Report 
+        public static void classroomGradeReport()
+        {
+            int[] grades = { 89, 79, 68, 90, 75, 88, 92, 84,100,70 };
+            Array.Sort(grades);
+            Array.Reverse(grades);
+            Console.WriteLine("Rank Grades:");
 
+            for (int i = 0; i < grades.Length; i++)
+            {
+                Console.WriteLine("Rank" + (i + 1) + ":" + grades[i]);
+            }
+        }
         static void Main(string[] args)
             {
 
@@ -111,10 +124,11 @@ namespace TS_DS_01
                         case 3://Problem 3: Product Price Finder
                         productPriceFinder();
                             break;
-                        case 4:
-                         raceFinishTime();
+                        case 4://Problem 4: Race Finish Times 
+                        raceFinishTime();
                             break;
-                        case 5:
+                        case 5://Problem 5: Classroom Grade Report
+                        classroomGradeReport();
                             break;
                         case 6:
                             break;
