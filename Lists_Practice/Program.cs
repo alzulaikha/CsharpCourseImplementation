@@ -52,6 +52,7 @@
                 Console.WriteLine(scores[i]);
             }
         }
+        // product Price Finder function
         public static void productPriceFinder()
         {
             List<double> prices = new List <double>()
@@ -74,6 +75,27 @@
                 Console.WriteLine("Price found:" + index);
             }
         }
+        // Race Finish Times function
+        public static void raceFinishTime()
+        {
+            List<int> finishTimes = new List<int>()
+             { 89, 79, 68, 90, 75, 88, 92, 84 }; ;
+            
+            Console.WriteLine("Original times: ");
+            foreach (int time in finishTimes)
+            {
+                Console.WriteLine(time);
+            }
+            finishTimes.Sort();   // Sorting the list 
+            Console.WriteLine("Sorted time:");
+            foreach (int time in finishTimes)
+            {
+                Console.WriteLine(time);
+            }
+            Console.WriteLine("Number of participants: " + finishTimes.Count);
+        }
+
+
         static void Main(string[] args)
         {
 
@@ -98,6 +120,7 @@
                         productPriceFinder();
                         break;
                     case 4:
+                        raceFinishTime();
                         break;
                     case 5:
                         break;
