@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic.FileIO;
+using System.Timers;
 
 namespace TS_DS_01
 {
@@ -31,25 +32,25 @@ namespace TS_DS_01
             }
             Console.WriteLine("Total number of reading:" + temperatures.Length);
         }
-        // Student Score Board
+        // Student Score Board function
         public static void studentScoreBoard()
         {
             int[] scores = { 80, 87, 93, 76, 83, 97 };
 
             Console.WriteLine("Original Scores:");
-            foreach (int s in scores)
+            foreach (int s in scores) //Print all scores in their original order
             {
                 Console.WriteLine(s);
             }
             Array.Reverse(scores);
 
-            Console.WriteLine("Reversed Scores:");
+            Console.WriteLine("Reversed Scores:"); //Reverse the array 
             for (int i = 0; i < scores.Length; i++)
             {
                 Console.WriteLine(scores[i]);
             }
         }
-        // product price finder
+        // product price finder function
         public static void productPriceFinder()
         {
             double[] prices = { 2.99, 1.30, 5.32, 1.20, 4.88 };
@@ -70,9 +71,23 @@ namespace TS_DS_01
             }
         }
 
-
-
-
+        // Race Finish Times function
+        public static void raceFinishTime()
+        {
+            int[] finishTimes = { 89, 79, 68, 90, 75, 88, 92, 84 };
+            Console.WriteLine("Original times: ");
+            foreach (int time in finishTimes)
+            {
+                Console.WriteLine(time);
+            }
+            Array.Sort(finishTimes);
+            Console.WriteLine("Sorted time:");
+            foreach (int time in finishTimes)
+            {
+                Console.WriteLine( time);
+            }
+            Console.WriteLine("Number of participants: " + finishTimes.Length);
+        }
 
         static void Main(string[] args)
             {
@@ -87,16 +102,17 @@ namespace TS_DS_01
 
                     switch (option)
                     {
-                        case 1:
-                            temperatureesLog();
+                        case 1://Problem 1: Temperature Log
+                        temperatureesLog();
                             break;
-                        case 2:
-                            studentScoreBoard();
+                        case 2://Problem 2: Student Score Board 
+                        studentScoreBoard();
                             break;
-                        case 3:
+                        case 3://Problem 3: Product Price Finder
                         productPriceFinder();
                             break;
                         case 4:
+                         raceFinishTime();
                             break;
                         case 5:
                             break;
