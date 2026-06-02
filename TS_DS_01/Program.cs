@@ -49,7 +49,32 @@ namespace TS_DS_01
                 Console.WriteLine(scores[i]);
             }
         }
-            static void Main(string[] args)
+        // product price finder
+        public static void productPriceFinder()
+        {
+            double[] prices = { 2.99, 1.30, 5.32, 1.20, 4.88 };
+            Console.WriteLine("Product Prices: ");
+            for (int i = 0; i < prices.Length; i++)
+            {
+                Console.WriteLine("Product" + (i + 1) + ":" + prices[i]);
+            }
+            double targetPrice = 1.20;
+            int index = Array.IndexOf(prices, targetPrice);
+            if (index == -1)
+            {
+                Console.WriteLine("Price not found");
+            }
+            else
+            {
+                Console.WriteLine("Price found:" + index);
+            }
+        }
+
+
+
+
+
+        static void Main(string[] args)
             {
 
                 bool exit = false;
@@ -69,6 +94,7 @@ namespace TS_DS_01
                             studentScoreBoard();
                             break;
                         case 3:
+                        productPriceFinder();
                             break;
                         case 4:
                             break;
