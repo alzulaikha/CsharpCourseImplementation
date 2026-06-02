@@ -51,7 +51,7 @@ namespace TS_DS_01
                 Console.WriteLine(scores[i]);
             }
         }
-        // product price finder function
+         //product price finder function
         public static void productPriceFinder()
         {
             double[] prices = { 2.99, 1.30, 5.32, 1.20, 4.88 };
@@ -102,6 +102,33 @@ namespace TS_DS_01
                 Console.WriteLine("Rank" + (i + 1) + ":" + grades[i]);
             }
         }
+        // Warehouse Inventory Check 
+        public static void warehouseInventoryCheck()
+        {
+            int[] quantities = { 6, 8, 5, 12, 9, 4, 2, 5 };
+            int total = 0;
+            
+            for (int i = 0; i < quantities.Length; i++)
+            {
+                
+                total += quantities[i];
+            }
+            Console.WriteLine("total stock:" + total);
+            double average= (double)total / quantities.Length;
+            Console.WriteLine("average stock: " + average);
+
+            int targetquantity = 12;
+            int index1 = Array.IndexOf(quantities, targetquantity);
+            if (index1 == -1)
+            {
+                Console.WriteLine(" quantity not found");
+            }
+            else
+            {
+                Console.WriteLine("quantity found:"+ index1);
+            }
+
+        }
         static void Main(string[] args)
             {
 
@@ -131,7 +158,8 @@ namespace TS_DS_01
                         classroomGradeReport();
                             break;
                         case 6:
-                            break;
+                        warehouseInventoryCheck();
+                        break;
                         case 7:
                             break;
                         case 8:
