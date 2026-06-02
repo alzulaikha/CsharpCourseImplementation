@@ -31,60 +31,79 @@ namespace TS_DS_01
             }
             Console.WriteLine("Total number of reading:" + temperatures.Length);
         }
-        static void Main(string[] args)
+        // Student Score Board
+        public static void studentScoreBoard()
         {
+            int[] scores = { 80, 87, 93, 76, 83, 97 };
 
-            bool exit = false;
-            while (exit == false)
-
+            Console.WriteLine("Original Scores:");
+            foreach (int s in scores)
             {
-                mainMenu();
-                Console.WriteLine("Select your option: ");
-                int option = int.Parse(Console.ReadLine());
+                Console.WriteLine(s);
+            }
+            Array.Reverse(scores);
 
-                switch (option)
-                {
-                    case 1:
-                        temperatureesLog();
-                        break;
-                    case 2:
-                        break;
-                    case 3:
-                        break;
-                    case 4:
-                        break;
-                    case 5:
-                        break;
-                    case 6:
-                        break;
-                    case 7:
-                        break;
-                    case 8:
-                        break;
-                    case 9:
-                        break;
-                    case 10:
-                        break;
-                    case 0:
-                        exit = true;
-                        break;
-                    default:
-                        Console.WriteLine("invalid option please try again");
-                        break;
-
-
-
-
-                }// closed switch
-                Console.WriteLine("press any key to continue...");
-                Console.ReadKey();
-                Console.Clear(); // clear the console for better user experience
-
+            Console.WriteLine("Reversed Scores:");
+            for (int i = 0; i < scores.Length; i++)
+            {
+                Console.WriteLine(scores[i]);
             }
         }
-    }
+            static void Main(string[] args)
+            {
 
-}
+                bool exit = false;
+                while (exit == false)
+
+                {
+                    mainMenu();
+                    Console.WriteLine("Select your option: ");
+                    int option = int.Parse(Console.ReadLine());
+
+                    switch (option)
+                    {
+                        case 1:
+                            temperatureesLog();
+                            break;
+                        case 2:
+                            studentScoreBoard();
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                        case 5:
+                            break;
+                        case 6:
+                            break;
+                        case 7:
+                            break;
+                        case 8:
+                            break;
+                        case 9:
+                            break;
+                        case 10:
+                            break;
+                        case 0:
+                            exit = true;
+                            break;
+                        default:
+                            Console.WriteLine("invalid option please try again");
+                            break;
+
+
+
+
+                    }// closed switch
+                    Console.WriteLine("press any key to continue...");
+                    Console.ReadKey();
+                    Console.Clear(); // clear the console for better user experience
+
+                }
+            }
+        }
+
+    }
 
 
 
