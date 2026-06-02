@@ -1,4 +1,6 @@
-﻿namespace Lists_Practice
+﻿using System.Diagnostics;
+
+namespace Lists_Practice
 {
     internal class Program
     {
@@ -111,7 +113,36 @@
                 Console.WriteLine("Rank" + (i + 1) + ":" + grades[i]);
             }
         }
+        // Warehouse Inventory Check function
+        public static void warehouseInventoryCheck()
+        {
+            List<int> quantities= new List< int >()
+                { 6, 8, 5, 12, 9, 4, 2, 5 };
+            
+            int total = 0;
 
+            for (int i = 0; i < quantities.Count; i++)
+            {
+
+                total += quantities[i];
+            }
+            Console.WriteLine("total stock:" + total);
+            double average = (double)total / quantities.Count;
+            Console.WriteLine("average stock: " + average);
+
+            int targetquantity = 12;
+            int index = quantities.IndexOf(targetquantity);
+          
+            if (index == -1)
+            {
+                Console.WriteLine(" quantity not found");
+            }
+            else
+            {
+                Console.WriteLine("quantity found:" + index);
+            }
+
+        }
         static void Main(string[] args)
         {
 
@@ -142,6 +173,7 @@
                         classroomGradeReport();
                         break;
                     case 6:
+                        warehouseInventoryCheck();
                         break;
                     case 7:
                         break;
