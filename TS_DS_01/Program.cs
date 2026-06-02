@@ -1,4 +1,6 @@
-﻿namespace TS_DS_01
+﻿using Microsoft.VisualBasic.FileIO;
+
+namespace TS_DS_01
 {
     internal class Program
     {
@@ -20,10 +22,60 @@
         }
         static void Main(string[] args)
         {
-            
+
+            bool exit = false;
+            while (exit == false)
+
+            {
+                mainMenu();
+                Console.WriteLine("Select your option: ");
+                int option = int.Parse(Console.ReadLine());
+
+                switch (option)
+                {
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
+                    case 6:
+                        break;
+                    case 7:
+                        break;
+                    case 8:
+                        break;
+                    case 9:
+                        break;
+                    case 10:
+                        break;
+                    case 0:
+                        exit = true;
+                        break;
+                    default:
+                        Console.WriteLine("invalid option please try again");
+                        break;
+
+
+
+
+                }// closed switch
+                Console.WriteLine("press any key to continue...");
+                Console.ReadKey();
+                Console.Clear(); // clear the console for better user experience
+
+            }
         }
     }
+
 }
+
+
+
 
 
 
