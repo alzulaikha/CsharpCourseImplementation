@@ -66,8 +66,8 @@ namespace Lists_Practice
             {
                 Console.WriteLine("Product" + (i + 1) + ":" + prices[i]);
             }
-            double targetPrice = 1.20;
-            int index = prices.IndexOf(targetPrice);
+           
+            int index = prices.IndexOf(1.20);
             if (index == -1)
             {
                 Console.WriteLine("Price not found");
