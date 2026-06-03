@@ -143,6 +143,27 @@ namespace Lists_Practice
             }
 
         }
+
+        // Library Book Shelf Scanner function
+        public static void libraryBookShelfScanner()
+        {
+            List <int> copies = new List< int >()
+                { 7, 9, 11, 4, 0, 6, 8, 2, 5 };
+            
+            Console.WriteLine("original order: ");
+            foreach (int copy in copies)
+            {
+                Console.WriteLine(copy);
+            }
+            copies.Sort();
+            Console.WriteLine("sorted order list: ");
+            foreach (int copy in copies)
+            {
+                Console.WriteLine(copy);
+            }
+
+            Console.WriteLine("Most copies: " + copies[8]);//accessing most copies after sort
+        }
         static void Main(string[] args)
         {
 
@@ -176,6 +197,7 @@ namespace Lists_Practice
                         warehouseInventoryCheck();
                         break;
                     case 7:
+                        libraryBookShelfScanner();
                         break;
                     case 8:
                         break;
