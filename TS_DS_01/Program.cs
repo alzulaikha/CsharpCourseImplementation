@@ -102,7 +102,7 @@ namespace TS_DS_01
                 Console.WriteLine("Rank" + (i + 1) + ":" + grades[i]);
             }
         }
-        // Warehouse Inventory Check 
+        // Warehouse Inventory Check function
         public static void warehouseInventoryCheck()
         {
             int[] quantities = { 6, 8, 5, 12, 9, 4, 2, 5 };
@@ -117,8 +117,7 @@ namespace TS_DS_01
             double average= (double)total / quantities.Length;
             Console.WriteLine("average stock: " + average);
 
-            int targetquantity = 12;
-            int index1 = Array.IndexOf(quantities, targetquantity);
+            int index1 = Array.IndexOf(quantities,12);
             if (index1 == -1)
             {
                 Console.WriteLine(" quantity not found");
