@@ -60,8 +60,8 @@ namespace TS_DS_01
             {
                 Console.WriteLine("Product" + (i + 1) + ":" + prices[i]);
             }
-            double targetPrice = 1.20;
-            int index = Array.IndexOf(prices, targetPrice);
+            
+            int index = Array.IndexOf(prices,1.20);
             if (index == -1)
             {
                 Console.WriteLine("Price not found");
