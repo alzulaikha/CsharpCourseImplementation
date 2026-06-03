@@ -124,7 +124,7 @@ namespace Lists_Practice
             for (int i = 0; i < quantities.Count; i++)
             {
 
-                total += quantities[i];
+                total +=quantities[i];
             }
             Console.WriteLine("total stock:" + total);
             double average = (double)total / quantities.Count;
