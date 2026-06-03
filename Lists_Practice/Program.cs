@@ -130,8 +130,8 @@ namespace Lists_Practice
             double average = (double)total / quantities.Count;
             Console.WriteLine("average stock: " + average);
 
-            int targetquantity = 12;
-            int index = quantities.IndexOf(targetquantity);
+            
+            int index = quantities.IndexOf(12);
           
             if (index == -1)
             {
