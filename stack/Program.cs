@@ -2,6 +2,7 @@
 {
     internal class Program
     {
+        // main menu
         public static void problemsMainMenu()
         {
             Console.WriteLine("== Stack & Queue  Practice ==");
@@ -17,6 +18,80 @@
             Console.WriteLine("10. Order Processing Pipeline with Statistics ");
             Console.WriteLine("0. Exit");
         }
+        //Browser History Tracker function
+        public static void browserHistoryTracker()
+        {
+         Stack<string> browserHistory = new Stack<String>();
+            browserHistory.Push("google.com");
+            browserHistory.Push("github.com");
+            browserHistory.Push("amazon.com");
+            browserHistory.Push("netflix.com");
+            browserHistory.Push("linkedin.com");
+
+            Console.WriteLine("== browser History ==");
+            foreach (var browser in browserHistory)
+            {
+
+                Console.WriteLine(browser);
+            }
+            Console.WriteLine("TopItem after peek:");
+            var topItem = browserHistory.Peek();
+            Console.WriteLine(topItem);
+
+            Console.WriteLine("first removed page: ");
+            var removedItem = browserHistory.Pop();
+            Console.WriteLine(removedItem);
+
+            Console.WriteLine("second removed page: ");
+            var removedItem2=browserHistory.Pop();
+            Console.WriteLine(removedItem2);
+
+
+            Console.WriteLine(" Browser history after both pops: ");
+            foreach (var browser in browserHistory)
+            {
+                Console.WriteLine(browser);
+            }
+
+
+            string checkItem = "amazon.com";
+            if (browserHistory.Contains(checkItem))
+            {
+                Console.WriteLine("URL still in the history");
+
+            }
+            else
+            {
+                Console.WriteLine("URL not found");
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         static void Main(string[] args)
         {
            bool exit=false;
@@ -30,7 +105,7 @@
                 {
 
                     case 1:
-                        
+                        browserHistoryTracker();
                         break;
                     case 2:
 
@@ -63,7 +138,9 @@
                         break;
 
                 }
-
+                Console.WriteLine("press any key to continue...");
+                Console.ReadKey();
+                Console.Clear(); // clear the console for better user experience
             }
         }
     }
