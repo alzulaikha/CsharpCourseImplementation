@@ -3,6 +3,7 @@
   <Project Path="HotelManagementSystem/HotelManagementSystem.csproj" Id="a4da2208-a49b-4b67-84bc-f0e1f3b76fa6" />
   <Project Path="LibraryManagementSystem/LibraryManagementSystem.csproj" Id="e67c63d0-3707-4057-b7ff-629f0d91326c" />
   <Project Path="Lists_Practice/Lists_Practice.csproj" Id="891ab7b7-a672-41bc-a273-59fbb042b7eb" />
+  <Project Path="stack/Stack_Queue Practice.csproj" Id="797887f0-7f00-417d-9a4d-e90e73824d80" />
   <Project Path="TS_DS_01/TS_DS_01.csproj" Id="f44e69fb-d6c6-48b4-9038-e711047fe5db" />
   <Project Path="TS_DS_02/TS_DS_02.csproj" Id="724876a7-8abd-4f27-a024-24516fcc22ad" />
 </Solution>
