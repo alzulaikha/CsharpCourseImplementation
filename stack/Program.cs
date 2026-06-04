@@ -67,7 +67,7 @@
             Console.WriteLine(" total number of pages:" + browserHistory.Count);
 
         }
-        // Hotel Check-In Queue
+        // Hotel Check-In Queue function
         public static void hotelCheckInQueue()
         {
          Queue<string> checkInQueue = new Queue<string>();
@@ -107,7 +107,61 @@
             Console.WriteLine(" total number of guests still in the queue: " +checkInQueue.Count);
         }
 
+        //Text Editor Undo System function
+        public static void editorUndoSystem()
+        {
+            Stack<string> undoStack = new Stack<string>();
+            Stack<string> tempStack = new Stack<string>();
 
+            undoStack.Push("Typed Hello");
+            undoStack.Push("Typed World");
+            undoStack.Push("Deleted World");
+            undoStack.Push("Typed C#");
+            undoStack.Push("Copied Text");
+            undoStack.Push("Posted Text");
+            undoStack.Push("Saved File");
+
+            Console.WriteLine("== Undo History ==");
+            foreach (var undo in undoStack)
+            {
+                Console.WriteLine(undo);
+            }
+            Console.WriteLine("== Next undo==");
+            var topItem1=undoStack.Peek();
+            Console.WriteLine(topItem1);
+
+            Console.WriteLine("== first removed action: ");
+            var removedAction1 = undoStack.Pop();
+            Console.WriteLine(removedAction1);
+
+            Console.WriteLine("== second removed action: ");
+            var removedAction2 = undoStack.Pop();
+            Console.WriteLine(removedAction2);
+
+            Console.WriteLine("== remaining undo history ==");
+            foreach (var undo in undoStack)
+            {
+                Console.WriteLine(undo);
+            }
+
+            tempStack.Push(undoStack.Pop());
+            tempStack.Push(undoStack.Pop());
+            undoStack.Pop();
+            Console.WriteLine("==stack before selective undo==");
+            foreach (var undo in undoStack)
+            {
+                Console.WriteLine(undo);
+            }
+            undoStack.Push(tempStack.Pop());
+            undoStack.Push(tempStack.Pop());
+
+            Console.WriteLine("==stack after selective undo==");
+            foreach (var undo in undoStack)
+            {
+                Console.WriteLine(undo);
+            }
+            Console.WriteLine("final Count of remaining actions:" +undoStack.Count);
+        }
 
 
 
@@ -152,7 +206,7 @@
                         hotelCheckInQueue();
                         break;
                     case 3:
-
+                        editorUndoSystem();
                         break;
                     case 4:
 
