@@ -64,8 +64,49 @@
             {
                 Console.WriteLine("URL not found");
             }
+            Console.WriteLine(" total number of pages:" + browserHistory.Count);
 
         }
+        // Hotel Check-In Queue
+        public static void hotelCheckInQueue()
+        {
+         Queue<string> checkInQueue = new Queue<string>();
+            checkInQueue.Enqueue("Ali");
+            checkInQueue.Enqueue("Omar");
+            checkInQueue.Enqueue("Amal");
+            checkInQueue.Enqueue("Ahmed");
+            checkInQueue.Enqueue("Noor");
+
+            Console.WriteLine("== all waiting guests ==");
+            foreach (var queue in checkInQueue)
+            {
+                Console.WriteLine(queue);
+            }
+
+            Console.WriteLine("== front item after peek: ==");
+            var frontItem = checkInQueue.Peek();
+            Console.WriteLine(frontItem);
+
+            Console.WriteLine(" first dequeue guest: ");
+            var removedGuest = checkInQueue.Dequeue();
+            Console.WriteLine(removedGuest);
+
+
+            Console.WriteLine(" second dequeue guest: ");
+            var removedGuest2= checkInQueue.Dequeue();
+            Console.WriteLine(removedGuest2);
+
+            Console.WriteLine("== queue after serving ==");
+            foreach (var queue in checkInQueue)
+            {
+                Console.WriteLine(queue);
+            }
+
+           
+            Console.WriteLine("Guest is still waiting :" +checkInQueue.Contains("Ali"));
+            Console.WriteLine(" total number of guests still in the queue: " +checkInQueue.Count);
+        }
+
 
 
 
@@ -108,7 +149,7 @@
                         browserHistoryTracker();
                         break;
                     case 2:
-
+                        hotelCheckInQueue();
                         break;
                     case 3:
 
