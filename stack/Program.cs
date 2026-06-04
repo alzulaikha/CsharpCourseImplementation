@@ -84,8 +84,7 @@
             }
 
             Console.WriteLine("== front item after peek: ==");
-            var frontItem = checkInQueue.Peek();
-            Console.WriteLine(frontItem);
+            Console.WriteLine(checkInQueue.Peek());
 
             Console.WriteLine(" first dequeue guest: ");
             var removedGuest = checkInQueue.Dequeue();
@@ -162,7 +161,71 @@
             }
             Console.WriteLine("final Count of remaining actions:" +undoStack.Count);
         }
+        //Hospital Emergency Room Triage function
+        public static void hospitalEmergencyRoom()
+        {
+            Queue<string> triageQueue= new Queue<string>();
+            Queue<string> tempQueue = new Queue<string>();
 
+
+            triageQueue.Enqueue("Bader");
+            triageQueue.Enqueue("Ali");
+            triageQueue.Enqueue("Sara");
+            triageQueue.Enqueue("Ahmed");
+            triageQueue.Enqueue("Noora");
+            triageQueue.Enqueue("Salim");
+            triageQueue.Enqueue("Saif");
+            triageQueue.Enqueue("Aysha");
+
+
+            int position = 1;
+            Console.WriteLine("== Patients names: ==");
+            foreach (var Patient in triageQueue)
+            {
+                Console.WriteLine(position + ":" +Patient);
+                position++;
+            }
+            Console.WriteLine("next patient: ");
+            Console.WriteLine(triageQueue.Peek());
+           
+
+            triageQueue.Dequeue();
+            triageQueue.Dequeue();
+            triageQueue.Dequeue();
+
+            int position1 = 1;
+            Console.WriteLine("== served Patients: ==");
+            foreach (var Patient in triageQueue)
+            {
+                Console.WriteLine(position1 + ":" + Patient);
+                position1++;
+            }
+
+            int position2 = 1;
+            Console.WriteLine("== queue before selective patient==");
+            tempQueue.Enqueue(triageQueue.Dequeue());
+            tempQueue.Enqueue(triageQueue.Dequeue());
+            triageQueue.Dequeue();
+
+            foreach (var Patient in triageQueue)
+            {
+                Console.WriteLine(position2 + ":" + Patient);
+                position2++;
+            }
+
+
+            int position3 = 1;
+            Console.WriteLine("== queue after selective patients==");
+            triageQueue.Enqueue(tempQueue.Dequeue());
+            triageQueue.Enqueue(tempQueue.Dequeue());
+
+            foreach (var Patient in triageQueue)
+            {
+                Console.WriteLine(position3 + ":" + Patient);
+                position3++;
+            }
+            Console.WriteLine("Total of patients after removal: "+triageQueue.Count);
+        }
 
 
 
@@ -209,7 +272,7 @@
                         editorUndoSystem();
                         break;
                     case 4:
-
+                        hospitalEmergencyRoom();
                         break;
                     case 5:
                         break;
